@@ -1,0 +1,14 @@
+dist: trusty
+language: node_js
+node_js:
+- "stable"
+before_script:
+- npm install
+script:
+- npm run build
+deploy:
+  provider: surge
+  project: ./build/
+  domain: https://kontent-sample-app-react-shopify.surge.sh
+  skip_cleanup: true
+  on: samples/shopify
